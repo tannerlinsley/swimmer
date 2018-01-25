@@ -16,7 +16,7 @@ Platform:
 npm manifest: 
   {
     "name": "swimmer",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "description": "An async task pooling and throttling utility for javascript.",
     "main": "lib/index.js",
     "module": "es/index.js",
@@ -30,7 +30,8 @@ npm manifest:
       "clean": "nwb clean-module",
       "test": "nwb test",
       "test:coverage": "nwb test --coverage",
-      "test:watch": "nwb test --server"
+      "test:watch": "nwb test --server",
+      "prepublishOnly": "yarn build"
     },
     "dependencies": {},
     "devDependencies": {
@@ -7996,14 +7997,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/swimmer: You cannot publish over the previously published version 1.0.0.
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:62098:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:123085:22)
-      at emitTwo (events.js:125:13)
-      at Request.emit (events.js:213:7)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:124068:10)
-      at emitOne (events.js:115:13)
-      at Request.emit (events.js:210:7)
-      at Gunzip.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:123988:12)
-      at Object.onceWrapper (events.js:314:30)
-      at emitNone (events.js:110:20)
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at errnoException (dns.js:53:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)

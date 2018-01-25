@@ -105,7 +105,9 @@ export function createPool (config = defaultConfig) {
 
 export function poolAll (tasks, concurrency) {
   return new Promise((resolve, reject) => {
-    const pool = createPool(concurrency)
+    const pool = createPool({
+      concurrency
+    })
     const results = []
     pool.onSettled(() => {
       resolve(results)
