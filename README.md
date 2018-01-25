@@ -1,4 +1,4 @@
-# swimmer 🏊
+# 🏊-swimmer-🏊
 
 [![Travis CI Build Status](https://travis-ci.org/tannerlinsley/swimmer.svg?branch=master)](https://travis-ci.org/tannerlinsley/swimmer)
 [![David Dependancy Status](https://david-dm.org/tannerlinsley/swimmer.svg)](https://david-dm.org/tannerlinsley/swimmer)
