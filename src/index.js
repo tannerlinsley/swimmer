@@ -5,7 +5,10 @@ const defaultConfig = {
 }
 
 export function createPool (config = defaultConfig) {
-  const { concurrency, started, tasks } = config
+  const { concurrency, started, tasks } = {
+    ...defaultConfig,
+    ...config
+  }
 
   let onSettles = []
   let onErrors = []
@@ -39,8 +42,10 @@ export function createPool (config = defaultConfig) {
         }
         active = active.filter(d => d !== nextFn)
         if (success) {
+          nextFn.resolve(res)
           onSuccesses.forEach(d => d(res, nextFn))
         } else {
+          nextFn.reject(error)
           onErrors.forEach(d => d(error, nextFn))
         }
         tick()
@@ -50,10 +55,13 @@ export function createPool (config = defaultConfig) {
   }
 
   const api = {
-    add: fn => {
-      pending.push(fn)
-      tick()
-    },
+    add: fn =>
+      new Promise((resolve, reject) => {
+        pending.push(fn)
+        fn.resolve = resolve
+        fn.reject = reject
+        tick()
+      }),
     throttle: n => {
       currentConcurrency = n
     },

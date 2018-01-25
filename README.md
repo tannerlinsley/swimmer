@@ -95,8 +95,8 @@ pool.onSuccess((res, task) => {
 // Subscribe to settle
 pool.onSettled(() => console.log("Pool is empty. All tasks are finished!"))
 
-const doIntenseTasks = () => {
-  // Add some tasks to the pool.
+const doIntenseTasks = async () => {
+  // Add more tasks to the pool.
   tasks.forEach(
     url => pool.add(
       () => fetch(url)
@@ -112,14 +112,16 @@ const doIntenseTasks = () => {
   // Start the pool again!
   pool.start()
 
-  // Add some more tasks!
-  otherUrls.forEach(
-    url => pool.add(
-      () => fetch(url)
-    )
-  )
+  // Add a single task and WAIT for it's completion/failure
+  try {
+    const res = await pool.add(() => fetch('http://custom.com/asset.json'))
+    console.log('A custom asset!', res)
+  } catch (err) {
+    console.log('Darn! An error...')
+    throw err
+  }
 
-  // Clear the pool. Any running tasks will continue until finished.
+  // Then clear the pool. Any running tasks will attempt to finished.
   pool.clear()
 }
 ```
@@ -142,6 +144,7 @@ Swimmer exports two functions:
   - Returns
     - `Object{}`
       - `add(() => Promise)` - Adds a task to the pool.
+        - Returns a promise that resolves/rejects with the eventual response from this task
       - `start()` - Starts the pool.
       - `stop()` - Stops the pool.
       - `throttle(Int)` - Sets a new concurrency rate for the pool.
