@@ -1,6 +1,6 @@
 {
   "name": "swimmer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An async task pooling and throttling utility for javascript.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -14,7 +14,8 @@
     "clean": "nwb clean-module",
     "test": "nwb test",
     "test:coverage": "nwb test --coverage",
-    "test:watch": "nwb test --server"
+    "test:watch": "nwb test --server",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {},
   "devDependencies": {
