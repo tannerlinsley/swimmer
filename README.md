@@ -126,19 +126,14 @@ const doIntenseTasks = () => {
 
 ### API
 Swimmer exports two functions:
-- `poolAll`
+- `poolAll` - creates an inline async/await/promise compatible pool
   - Arguments
     - `Array[Function => Promise]` - An array of functions that return a promise.
     - `Int` - The currency limit for this pool.
   - Returns
-    - A `Promise`
+    - A `Promise` that resolves when all tasks are complete, or throws an error if one of them fails.
   - Example:
-  ```javascript
-    async function () {
-      const res = await poolAll(tasks.map(task => () => task()), 5)
-    }
-  ```
-- `createPool`
+- `createPool` - creates an custom pool
   - Arguments
     - `Object{}` - An optional configuration object for this pool
       - `concurrency: Int (default: 5)` - The currency limit for this pool.
