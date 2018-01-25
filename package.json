@@ -1,7 +1,7 @@
 {
   "name": "swimmer",
-  "version": "1.0.0",
-  "description": "Describe swimmer here",
+  "version": "1.0.1",
+  "description": "An async task pooling and throttling utility for javascript.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -16,13 +16,12 @@
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "eslint-config-react-tools": "^1.1.1",
     "nwb": "0.21.x"
   },
-  "author": "",
-  "homepage": "",
+  "homepage": "https://github.com/tannerlinsley/swimmer",
   "license": "MIT",
-  "repository": ""
+  "repository": "https://github.com/tannerlinsley/swimmer.git"
 }
