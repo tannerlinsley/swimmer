@@ -1,4 +1,4 @@
-# 🏊 swimmer 🏊‍
+# swimmer 🏊
 
 [![Travis CI Build Status](https://travis-ci.org/tannerlinsley/swimmer.svg?branch=master)](https://travis-ci.org/tannerlinsley/swimmer)
 [![David Dependancy Status](https://david-dm.org/tannerlinsley/swimmer.svg)](https://david-dm.org/tannerlinsley/swimmer)
@@ -27,7 +27,9 @@ $ npm i swimmer --save
 ```
 
 ## UMD
-`https://unpkg.com/swimmer/umd/swimmer.min.js`
+```
+https://unpkg.com/swimmer/umd/swimmer.min.js
+```
 
 ## Inline Pooling
 Inline Pooling is great for:
