@@ -1,6 +1,5 @@
 # 🏊‍ swimmer
 
-[![Travis CI Build Status](https://travis-ci.org/tannerlinsley/swimmer.svg?branch=master)](https://travis-ci.org/tannerlinsley/swimmer)
 [![David Dependancy Status](https://david-dm.org/tannerlinsley/swimmer.svg)](https://david-dm.org/tannerlinsley/swimmer)
 [![npm package v](https://img.shields.io/npm/v/swimmer.svg)](https://www.npmjs.org/package/swimmer)
 [![npm package dm](https://img.shields.io/npm/dm/swimmer.svg)](https://npmjs.com/package/swimmer)
