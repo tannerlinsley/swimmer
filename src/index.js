@@ -1,11 +1,11 @@
 const defaultConfig = {
   concurrency: 5,
   started: true,
-  tasks: []
+  tasks: [],
 }
 
 export function createPool (config = defaultConfig) {
-  const { concurrency, started, tasks } = config
+  const { concurrency = defaultConfig.concurrency, started, tasks = [] } = config
 
   let onSettles = []
   let onErrors = []
@@ -25,9 +25,9 @@ export function createPool (config = defaultConfig) {
     }
     while (active.length < currentConcurrency && pending.length) {
       const nextFn = pending.shift()
-      active.push(nextFn)
+      active.push(nextFn);
       /* eslint-disable no-loop-func */
-      ;(async () => {
+      (async () => {
         let success = false
         let res
         let error
@@ -89,7 +89,7 @@ export function createPool (config = defaultConfig) {
     getPending: () => pending,
     getAll: () => [...active, ...pending],
     isRunning: () => running,
-    isSettled: () => !running && !active.length && !pending.length
+    isSettled: () => !running && !active.length && !pending.length,
   }
 
   return api
@@ -97,7 +97,7 @@ export function createPool (config = defaultConfig) {
 
 export function poolAll (tasks, concurrency) {
   return new Promise((resolve, reject) => {
-    const pool = createPool(concurrency)
+    const pool = createPool({ concurrency })
     const results = []
     pool.onSettled(() => {
       resolve(results)
