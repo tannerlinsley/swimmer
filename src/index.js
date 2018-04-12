@@ -19,6 +19,7 @@ export function createPool (config = defaultConfig) {
   let currentConcurrency = concurrency
 
   const tick = () => {
+    console.log(running)
     if (!running) {
       return
     }
@@ -55,9 +56,13 @@ export function createPool (config = defaultConfig) {
   }
 
   const api = {
-    add: fn =>
+    add: (fn, { priority } = {}) =>
       new Promise((resolve, reject) => {
-        pending.push(fn)
+        if (priority) {
+          pending.unShift(fn)
+        } else {
+          pending.push(fn)
+        }
         fn.resolve = resolve
         fn.reject = reject
         tick()

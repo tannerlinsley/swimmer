@@ -143,7 +143,8 @@ Swimmer exports two functions:
       - `tasks: Array[Function => Promise]` - An array of functions that return a promise. These tasks will be preloaded into the pool.
   - Returns
     - `Object{}`
-      - `add(() => Promise)` - Adds a task to the pool.
+      - `add(() => Promise, config{})` - Adds a task to the pool. Optionally pass a config object
+        - `config.priority` - Set this option to `true` to queue this task in front of all other `pending` tasks.
         - Returns a promise that resolves/rejects with the eventual response from this task
       - `start()` - Starts the pool.
       - `stop()` - Stops the pool.
