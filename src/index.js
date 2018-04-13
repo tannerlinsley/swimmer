@@ -19,7 +19,6 @@ export function createPool (config = defaultConfig) {
   let currentConcurrency = concurrency
 
   const tick = () => {
-    console.log(running)
     if (!running) {
       return
     }
