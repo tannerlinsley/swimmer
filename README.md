@@ -131,14 +131,14 @@ Swimmer exports two functions:
 - `poolAll` - creates an inline async/await/promise compatible pool
   - Arguments
     - `Array[Function => Promise]` - An array of functions that return a promise.
-    - `Int` - The currency limit for this pool.
+    - `Int` - The concurrency limit for this pool.
   - Returns
     - A `Promise` that resolves when all tasks are complete, or throws an error if one of them fails.
   - Example:
 - `createPool` - creates an custom pool
   - Arguments
     - `Object{}` - An optional configuration object for this pool
-      - `concurrency: Int (default: 5)` - The currency limit for this pool.
+      - `concurrency: Int (default: 5)` - The concurrency limit for this pool.
       - `started: Boolean (default: true)` - Whether the pool should be started by default or not.
       - `tasks: Array[Function => Promise]` - An array of functions that return a promise. These tasks will be preloaded into the pool.
   - Returns
